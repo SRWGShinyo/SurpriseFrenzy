@@ -64,7 +64,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToDie: 0
   originalTimeToDie: 0
-  givenScore: 200
   sprites:
   - {fileID: 21300000, guid: bdc3f868ebf8c1f42bc8977e267423d4, type: 3}
   - {fileID: 21300000, guid: 0f3426b99d776234889e3886ef03296a, type: 3}
@@ -176,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6943902495523893936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.006, y: -0.006, z: 0}
+  m_LocalPosition: {x: 0.006, y: -0.006, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 3891640405758817410}
@@ -219,7 +218,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5569d675973f95f4585ff651fa633f4a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89115d7947c1a3d4193ec1ea0888161a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

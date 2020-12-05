@@ -9,6 +9,12 @@ public class QTEClick : QTEMother
     public GameObject circle;
     public SpriteRenderer toChange;
 
+    [SerializeField]
+    private int BORNHEIGHT = 100;
+
+    [SerializeField]
+    private int BORNWIDHT = 100;
+
 
     void Start()
     {
@@ -23,8 +29,13 @@ public class QTEClick : QTEMother
     protected override void Update()
     {
         base.Update();
-        circle.transform.localScale = new Vector3(circle.transform.localScale.x - Time.deltaTime, 
-                                circle.transform.localScale.y - Time.deltaTime, circle.transform.localScale.z - Time.deltaTime);
+        if (circle.transform.localScale.x > 0 )
+        circle.transform.localScale = new Vector3(circle.transform.localScale.x
+                                            - (Time.deltaTime + Mathf.Abs((2 / originalTimeToDie) - 1) * Time.deltaTime), 
+                                                  circle.transform.localScale.y 
+                                            - (Time.deltaTime + Mathf.Abs((2 / originalTimeToDie) - 1) * Time.deltaTime), 
+                                                  circle.transform.localScale.z 
+                                            - (Time.deltaTime + Mathf.Abs((2 / originalTimeToDie) - 1) * Time.deltaTime));
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -39,11 +50,11 @@ public class QTEClick : QTEMother
     public override void validate()
     {
         ValidationType type = ValidationType.GOOD;
-        if (timeToDie <= -0.5f)
+        if (timeToDie <= 0f)
             type = ValidationType.FAIL;
-        else if (timeToDie >= originalTimeToDie * 0.75f)
+        else if (timeToDie >= originalTimeToDie * 0.6f)
             type = ValidationType.FAIL;
-        else if (timeToDie < originalTimeToDie / 2f)
+        else if (timeToDie < (originalTimeToDie * 0.3f))
             type = ValidationType.PERFECT;
 
         FindObjectOfType<QTEController>().ValidateAQTE(this, type);
@@ -52,11 +63,11 @@ public class QTEClick : QTEMother
     protected override void ChoseProperPosition()
     {
         Vector2 screenPos = Camera.main.ScreenToWorldPoint(
-                new Vector3(Random.Range(80, Screen.width), Random.Range(80, Screen.height), 0));
+                new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
         while(!checkAvailablePos(screenPos))
         {
             screenPos = Camera.main.ScreenToWorldPoint(
-                new Vector3(Random.Range(80, Screen.width), Random.Range(80, Screen.height), 0));
+                new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
         }
 
         transform.position = screenPos;

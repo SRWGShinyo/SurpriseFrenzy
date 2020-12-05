@@ -13,13 +13,13 @@ public abstract class QTEMother : MonoBehaviour
 
     public float timeToDie;
     public float originalTimeToDie;
-    public int givenScore = 200;
+
     protected QTEMother() { }
 
     protected virtual void Update()
     {
         timeToDie -= Time.deltaTime;
-        if (timeToDie <= -0.5f)
+        if (timeToDie <= 0f)
             validate();
     }
     public abstract void validate();
