@@ -18,6 +18,8 @@ public class BezierFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = routes[0].GetChild(0).position;
+
         routeToGo = 0;
         tParam = 0f;
         speedModifier = 0.5f;
@@ -27,8 +29,10 @@ public class BezierFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (coroutineAllowed)
             StartCoroutine(GoByTheRoute(routeToGo));
+        
     }
 
     private IEnumerator GoByTheRoute(int routeNumber)
