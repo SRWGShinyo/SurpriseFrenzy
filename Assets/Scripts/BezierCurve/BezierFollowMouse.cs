@@ -70,6 +70,12 @@ public class BezierFollowMouse : MonoBehaviour
             }
         }
 
+        if (checkForMinimalDistance(transform.position, routeCurve.positions[routeCurve.positions.Count - 1], 0.8f))
+        {
+            positionsPast.Clear();
+            GetComponentInParent<QTEMother>().validate();
+        }
+
         if (!isEngaged && positionsPast.Count > 0)
         {
             Vector2 pos = positionsPast.Pop();

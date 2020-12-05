@@ -13,6 +13,7 @@ public class BezierCurve : MonoBehaviour
 
     public List<Vector3> positions;
     private Vector2 gizmosPosition;
+    public GameObject circlewhite;
 
     private void Start()
     {
@@ -23,6 +24,9 @@ public class BezierCurve : MonoBehaviour
             render.SetPositions(positions.ToArray());
         }
 
+        GameObject end = Instantiate(circlewhite);
+        end.transform.position = positions[positions.Count - 1];
+        end.transform.SetParent(gameObject.transform);
     }
 
     private List<Vector3> getPositions()

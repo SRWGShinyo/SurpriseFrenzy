@@ -26,6 +26,21 @@ public class QTETouch : QTEMother
         ChoseProperPosition();
     }
 
+    public override void validate()
+    {
+        ValidationType type = ValidationType.GOOD;
+        if (timeToDie <= -0.5f)
+            type = ValidationType.FAIL;
+        else if (timeToDie >= originalTimeToDie * (3 / 4))
+            type = ValidationType.FAIL;
+        else if (timeToDie < originalTimeToDie / 2f)
+            type = ValidationType.PERFECT;
+
+
+
+        FindObjectOfType<QTEController>().ValidateAQTE(this, type);
+    }
+
     protected override void Update()
     {
         base.Update();
@@ -36,11 +51,11 @@ public class QTETouch : QTEMother
     protected override void ChoseProperPosition()
     {
         Vector2 screenPos = Camera.main.ScreenToWorldPoint(
-        new Vector3(Random.Range(20, Screen.width), Random.Range(20, Screen.height), 0));
+        new Vector3(Random.Range(80, Screen.width), Random.Range(80, Screen.height), 0));
         while (!checkAvailablePos(screenPos))
         {
             screenPos = Camera.main.ScreenToWorldPoint(
-                new Vector3(Random.Range(20, Screen.width), Random.Range(20, Screen.height), 0));
+                new Vector3(Random.Range(80, Screen.width), Random.Range(80, Screen.height), 0));
         }
 
         transform.position = screenPos;

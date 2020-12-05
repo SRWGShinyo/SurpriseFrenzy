@@ -107,7 +107,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.08333397
+        value: 0.32657433
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -120,18 +120,18 @@ LineRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
+      key1: {r: 0.5235849, g: 0.6211982, b: 1, a: 1}
+      key2: {r: 0.82427216, g: 0, b: 1, a: 0}
+      key3: {r: 0.2971698, g: 1, b: 0.9253583, a: 0}
+      key4: {r: 1, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
+      ctime1: 23130
+      ctime2: 38357
+      ctime3: 51657
+      ctime4: 65535
       ctime5: 0
       ctime6: 0
       ctime7: 0
@@ -144,7 +144,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 5
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
@@ -271,6 +271,8 @@ MonoBehaviour:
   - {fileID: 8361818571372223416}
   render: {fileID: 8361818571290260762}
   positions: []
+  circlewhite: {fileID: 4448740033989599069, guid: 339cef708c7e5d346a216e0fb6394894,
+    type: 3}
 --- !u!114 &601369986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +285,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c765dd07248144a83cb9452caea108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToDie: 0
+  originalTimeToDie: 0
+  givenScore: 200
+  sprites:
+  - {fileID: 21300000, guid: bdc3f868ebf8c1f42bc8977e267423d4, type: 3}
+  - {fileID: 21300000, guid: 2a8c313d2ef72eb45b36b9b1c4804536, type: 3}
+  - {fileID: 21300000, guid: 8c7cd5633d45ba44f98b7560853cd0bc, type: 3}
+  - {fileID: 21300000, guid: 0f3426b99d776234889e3886ef03296a, type: 3}
 --- !u!1 &8361818572478502290
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +350,7 @@ Transform:
   m_GameObject: {fileID: 8361818572621878025}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.6, y: -4.6, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 8361818571846225434}
   m_RootOrder: 5
@@ -382,7 +392,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: bdc3f868ebf8c1f42bc8977e267423d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

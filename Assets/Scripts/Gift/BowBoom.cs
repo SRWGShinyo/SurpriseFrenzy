@@ -22,6 +22,12 @@ public class BowBoom : MonoBehaviour
     {
         isRotating = true;
         rb.gravityScale = 2;
-        rb.AddForce(Vector2.up * 19, ForceMode2D.Impulse);
+        int chosen = Random.Range(0, 3);
+        if (chosen == 0)
+            rb.AddForce(Vector2.up * 19, ForceMode2D.Impulse);
+        else if (chosen == 1)
+            rb.AddForce(Vector2.left * 19, ForceMode2D.Impulse);
+        else
+            rb.AddForce(Vector2.right * 19, ForceMode2D.Impulse);
     }
 }
