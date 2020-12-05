@@ -10,7 +10,6 @@ public class BowBoom : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        GoAway();
     }
 
     void Update()
@@ -23,6 +22,6 @@ public class BowBoom : MonoBehaviour
     {
         isRotating = true;
         rb.gravityScale = 2;
-        rb.AddForce(Vector2.up * 20, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * 19, ForceMode2D.Impulse);
     }
 }

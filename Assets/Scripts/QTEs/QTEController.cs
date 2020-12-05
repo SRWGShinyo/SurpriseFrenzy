@@ -54,7 +54,9 @@ public class QTEController : MonoBehaviour
 
         else
         {
-            if (rng <= 50)
+            if (rng <= 20)
+                createQTE(QTEType.SLIDER);
+            else if (rng <= 60)
                 createQTE(QTEType.TOUCH);
             else
                 createQTE(QTEType.CLICK);

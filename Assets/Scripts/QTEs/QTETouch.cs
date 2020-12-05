@@ -35,6 +35,14 @@ public class QTETouch : QTEMother
 
     protected override void ChoseProperPosition()
     {
-        
+        Vector2 screenPos = Camera.main.ScreenToWorldPoint(
+        new Vector3(Random.Range(20, Screen.width), Random.Range(20, Screen.height), 0));
+        while (!checkAvailablePos(screenPos))
+        {
+            screenPos = Camera.main.ScreenToWorldPoint(
+                new Vector3(Random.Range(20, Screen.width), Random.Range(20, Screen.height), 0));
+        }
+
+        transform.position = screenPos;
     }
 }
