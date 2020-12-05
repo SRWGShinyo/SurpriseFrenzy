@@ -17,11 +17,48 @@ public class QTEController : MonoBehaviour
     public int multiplier = 1;
     public int score = 0;
 
+    public float wantedTimeQTE = 1f;
+    public float timeBeforeQte = 1f;
+
     public enum QTEType
     {
         SLIDER,
         CLICK,
         TOUCH
+    }
+
+    private void Update()
+    {
+        timeBeforeQte -= Time.deltaTime;
+        if (timeBeforeQte <= 0)
+        {
+            SpawnQTE();
+            timeBeforeQte = wantedTimeQTE;
+        }
+    }
+
+    public void SpawnQTE()
+    {
+        System.Random rdm = new System.Random();
+        int rng = rdm.Next(1, 101);
+
+        if (activeQTEs.Count == 0)
+        {
+            if (rng <= 80)
+                createQTE(QTEType.SLIDER);
+            else if (rng <= 90)
+                createQTE(QTEType.TOUCH);
+            else
+                createQTE(QTEType.CLICK);
+        }
+
+        else
+        {
+            if (rng <= 50)
+                createQTE(QTEType.TOUCH);
+            else
+                createQTE(QTEType.CLICK);
+        }
     }
 
     public void createQTE(QTEType type)
