@@ -9,6 +9,8 @@ public class BezierFollowMouse : MonoBehaviour
     private BezierCurve routeCurve;
     private float tParam;
 
+    private Stack<Vector2> positionsPast = new Stack<Vector2>();
+
     private Vector2 sliderPosition;
     private float speedModifier;
 
@@ -37,7 +39,6 @@ public class BezierFollowMouse : MonoBehaviour
             if (checkForMinimalDistance(mousePosToWorld, transform.position))
             {
                 isEngaged = true;
-                Debug.Log("Engaged !");
             }
         }
 
@@ -54,7 +55,25 @@ public class BezierFollowMouse : MonoBehaviour
             else
             {
                 transform.position = position;
+                if (!positionsPast.Contains(position))
+                    positionsPast.Push(position);
             }
+        }
+
+        if (Input.GetMouseButtonUp(0) && isEngaged)
+        {
+            isEngaged = false;
+            if (checkForMinimalDistance(transform.position, routeCurve.positions[routeCurve.positions.Count - 1], 0.8f))
+            {
+                positionsPast.Clear();
+                Debug.Log("VALIDATED !");
+            }
+        }
+
+        if (!isEngaged && positionsPast.Count > 0)
+        {
+            Vector2 pos = positionsPast.Pop();
+            transform.position = pos;
         }
     }
 
@@ -100,10 +119,11 @@ public class BezierFollowMouse : MonoBehaviour
         coroutineAllowed = true;
     }
 
-    private bool checkForMinimalDistance(Vector2 pos1, Vector2 pos2)
+    private bool checkForMinimalDistance(Vector2 pos1, Vector2 pos2, float customPos = -1)
     {
+        float localminimalDistance = customPos == -1 ? minimalDistance : customPos;
         float dist = Mathf.Abs(Mathf.Sqrt(Mathf.Pow(pos1.x - pos2.x, 2) + Mathf.Pow(pos1.y - pos2.y, 2)));
-        if (dist <= minimalDistance)
+        if (dist <= localminimalDistance)
             return true;
         return false;
     }
