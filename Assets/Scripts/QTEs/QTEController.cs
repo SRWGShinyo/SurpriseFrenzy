@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class QTEController : MonoBehaviour
 {
+    [SerializeField]
+    float timeLeft = 20f;
     public List<GameObject> activeQTEs;
 
     public GameObject qteSliderPrefab;
     public GameObject qteClickPrefab;
     public GameObject qteTouchPrefab;
+
+    public float wantedTimeToDie = 2f;
+
+    public int multiplier = 1;
+    public int score = 0;
 
     public enum QTEType
     {
@@ -31,5 +38,26 @@ public class QTEController : MonoBehaviour
                 activeQTEs.Add(Instantiate(qteTouchPrefab));
                 break;
         }
+    }
+
+    public void ValidateAQTE(QTEMother qt, QTEMother.ValidationType type)
+    {
+        switch(type)
+        {
+            case QTEMother.ValidationType.PERFECT:
+                score += qt.givenScore * multiplier;
+                timeLeft += 2f;
+                break;
+            case QTEMother.ValidationType.GOOD:
+                score += (qt.givenScore / 2) * multiplier;
+                timeLeft += 1f;
+                break;
+            case QTEMother.ValidationType.FAIL:
+                timeLeft -= 1f;
+                break;
+        }
+
+        activeQTEs.Remove(qt.gameObject);
+        Destroy(qt.gameObject);
     }
 }

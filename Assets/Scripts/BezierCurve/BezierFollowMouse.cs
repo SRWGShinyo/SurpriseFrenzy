@@ -66,7 +66,7 @@ public class BezierFollowMouse : MonoBehaviour
             if (checkForMinimalDistance(transform.position, routeCurve.positions[routeCurve.positions.Count - 1], 0.8f))
             {
                 positionsPast.Clear();
-                Debug.Log("VALIDATED !");
+                GetComponentInParent<QTEMother>().validate();
             }
         }
 
