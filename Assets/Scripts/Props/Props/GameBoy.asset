@@ -15,3 +15,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 16dfb21dcb59e8b4eb73f17e063927bc, type: 3}
   nam: GameBoy
   tagline: You're gonna have fun !
+  objectState: 2

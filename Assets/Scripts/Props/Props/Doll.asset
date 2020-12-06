@@ -15,4 +15,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: af752664dc77cab4eaf98e59bc523f6c, type: 3}
   nam: Doll
   tagline: I'm pretty sure I know that doll...
-  objectState: 0
+  objectState: 2

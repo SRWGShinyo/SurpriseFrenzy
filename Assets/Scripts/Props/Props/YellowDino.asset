@@ -15,4 +15,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: a1d726ee11910a646a1d1013a09468b9, type: 3}
   nam: Yellow Dino
   tagline: Shiny ! Like the sun !
-  objectState: 0
+  objectState: 1

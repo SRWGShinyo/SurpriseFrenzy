@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c50d0c161a5e4204f906f383adfc91ba, type: 3}
-  m_Name: MintLoli
+  m_Name: Map
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 62953f0dbb78c804788d8039defd645e, type: 3}
-  nam: Mint Lollipop
-  tagline: It's green but tasty !
+  image: {fileID: 21300000, guid: ccf6d65b389e2ed46bc765f57a7179c0, type: 3}
+  nam: Treasure Map
+  tagline: It might lead to a bigger gift !
   objectState: 1

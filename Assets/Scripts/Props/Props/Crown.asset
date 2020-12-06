@@ -15,3 +15,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 93e0486c0b2d1e54fb34807283916844, type: 3}
   nam: Crown
   tagline: I hereby name you...nevermind.
+  objectState: 1

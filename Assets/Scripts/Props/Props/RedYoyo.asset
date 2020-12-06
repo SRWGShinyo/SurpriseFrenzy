@@ -15,4 +15,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 5647e54d26488be499bbc868f8c2e556, type: 3}
   nam: Red yoyo
   tagline: Goes up and down !
-  objectState: 0
+  objectState: 2

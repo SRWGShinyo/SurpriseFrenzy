@@ -15,4 +15,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: e73833e0fe8697744b20bf612d0a1cc1, type: 3}
   nam: Red Dino
   tagline: He is very very angry !
-  objectState: 0
+  objectState: 1

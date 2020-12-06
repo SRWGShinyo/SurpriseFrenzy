@@ -15,4 +15,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: c5d7c8cfe07eb434493bcd2701eef485, type: 3}
   nam: Ruby
   tagline: Worth 20 rub...wait
-  objectState: 0
+  objectState: 1
