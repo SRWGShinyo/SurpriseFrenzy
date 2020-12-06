@@ -53,9 +53,15 @@ public class QTEClick : QTEMother
     {
         ValidationType type = ValidationType.GOOD;
         if (timeToDie <= 0f)
+        {
             type = ValidationType.FAIL;
+            ShakeCamHandler.Shake();
+        }
         else if (timeToDie >= originalTimeToDie * 0.6f)
+        {
             type = ValidationType.FAIL;
+            ShakeCamHandler.Shake();
+        }
         else if (timeToDie < (originalTimeToDie * 0.3f))
         {
             type = ValidationType.PERFECT;
