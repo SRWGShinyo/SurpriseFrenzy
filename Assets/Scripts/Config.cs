@@ -10,8 +10,8 @@ public class Config : MonoBehaviour
     public static int scoreGivenGiftNormal = 500;
     public static int scoreGivenGiftHard = 750;
 
-    public static float ttlNormal = 1.5f;
-    public static float ttlHard = 1.1f;
+    public static float ttlNormal = 2f;
+    public static float ttlHard = 1.3f;
 
     public static float timeSpawningNormal = 0.8f;
     public static float timeSpawningHard = 0.6f;
