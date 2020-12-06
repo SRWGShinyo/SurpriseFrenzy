@@ -16,8 +16,13 @@ public class Gift : MonoBehaviour
     public Sprite demicadeau;
     public Sprite nakedcadeau;
 
+     GameObject[] audios;
+    GameObject ding;
+
     private void Start()
     {
+        audios = GameObject.FindGameObjectsWithTag("Scratch");
+        ding = GameObject.FindGameObjectWithTag("Ding");
         GetComponent<GiftColorSelector>().SetUpGift(this);
     }
 
@@ -26,11 +31,13 @@ public class Gift : MonoBehaviour
         qteBeforeOpening -= 1;
         if (qteBeforeOpening == 6)
         {
+            audios[Random.Range(0, audios.Length)].GetComponent<AudioSource>().Play();
             bow.gameObject.GetComponent<BowBoom>().GoAway();
         }
 
         if (qteBeforeOpening == 4)
         {
+            audios[Random.Range(0, audios.Length)].GetComponent<AudioSource>().Play();
             giftRender.sprite = demicadeau;
             top.enabled = true;
             top.gameObject.GetComponent<BowBoom>().GoAway();
@@ -38,6 +45,7 @@ public class Gift : MonoBehaviour
 
         if (qteBeforeOpening == 2)
         {
+            audios[Random.Range(0, audios.Length)].GetComponent<AudioSource>().Play();
             giftRender.sprite = nakedcadeau;
             bot.enabled = true;
             bot.gameObject.GetComponent<BowBoom>().GoAway();
@@ -46,6 +54,7 @@ public class Gift : MonoBehaviour
         if (qteBeforeOpening == 0)
         {
             StartCoroutine(MoveAndGo());
+            ding.GetComponent<AudioSource>().Play();
         }
     }
 

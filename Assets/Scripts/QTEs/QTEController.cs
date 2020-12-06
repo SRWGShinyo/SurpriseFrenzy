@@ -35,6 +35,8 @@ public class QTEController : MonoBehaviour
     public float givenPerfect;
     public float givenGood;
 
+    public AudioSource dingding;
+    public AudioSource error;
     public enum QTEType
     {
         SLIDER,
@@ -167,6 +169,7 @@ public class QTEController : MonoBehaviour
                     score += givenScore;
                     timeLeft += givenPerfect;
                 }
+                dingding.Play();
                 activeGift.ReduceQte();
                 break;
             case QTEMother.ValidationType.GOOD:
@@ -175,11 +178,13 @@ public class QTEController : MonoBehaviour
                     score += givenScore / 2;
                     timeLeft += givenGood;
                 }
+                dingding.Play();
                 activeGift.ReduceQte();
                 break;
             case QTEMother.ValidationType.FAIL:
                 if (GameController.activeGC.selectedDifficulty != GameController.Gametype.TRAINING)
                     timeLeft -= 2f;
+                error.Play();
                 break;
         }
 

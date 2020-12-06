@@ -477,6 +477,7 @@ MonoBehaviour:
   bow: {fileID: 69070876796826684}
   demicadeau: {fileID: 21300000, guid: 6c864934852e9a543a7a0e61416d2a44, type: 3}
   nakedcadeau: {fileID: 21300000, guid: a76388d2133dd214eb3d5e6797045c41, type: 3}
+  audios: []
 --- !u!114 &114642686412920348
 MonoBehaviour:
   m_ObjectHideFlags: 0

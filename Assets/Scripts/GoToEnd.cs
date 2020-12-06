@@ -23,6 +23,9 @@ public class GoToEnd : MonoBehaviour
     public TextMeshProUGUI finished;
     public TextMeshProUGUI Unpack;
 
+    public AudioSource drumroll;
+    public AudioSource ambient;
+    public AudioSource ohhh;
     public void EndGame()
     {
         StartCoroutine(AnimateToEnd());
@@ -30,10 +33,12 @@ public class GoToEnd : MonoBehaviour
 
     private IEnumerator AnimateToEnd()
     {
+        ambient.mute = true;
         finished.transform.DOScale(new Vector3(1f, 1f, 1f), 0.6f);
         yield return new WaitForSeconds(2f);
         finished.transform.DOScale(new Vector3(0f, 0f, 0f), 0.6f);
         Unpack.transform.DOScale(new Vector3(1f, 1f, 1f), 0.6f);
+        drumroll.Play();
         yield return new WaitForSeconds(2f);
         Unpack.transform.DOScale(new Vector3(0f, 0f, 0f), 0.6f);
 
@@ -62,15 +67,17 @@ public class GoToEnd : MonoBehaviour
             renderer.transform.DOMove(itemCenter.position, 1f);
             renderer.transform.DOScale(new Vector3(1.7f, 1.7f, 1.7f), 1f);
             yield return new WaitForSeconds(1f);
-
+            drumroll.Stop();
+            ohhh.Play();
             itemName.transform.DOScale(new Vector3(1, 1, 1), 1f);
             itemDescr.transform.DOScale(new Vector3(1, 1, 1), 1f);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             renderer.transform.DOMove(middlePoint.position, 0.6f);
             renderer.transform.DOScale(new Vector3(0, 0, 0), 0.6f);
             itemName.transform.DOScale(new Vector3(0, 0, 0), 0.4f);
             itemDescr.transform.DOScale(new Vector3(0, 0, 0), 0.4f);
-
+            ohhh.Stop();
+            drumroll.Play();
             yield return new WaitForSeconds(0.6f);
             Destroy(renderer);
             gift.transform.DOMove(endPoint.transform.position, 0.5f);
@@ -79,6 +86,8 @@ public class GoToEnd : MonoBehaviour
             GameController.activeGC.giftsToGive.RemoveAt(0);
         }
 
+        drumroll.Stop();
+        ambient.mute = false;
         endPanel.GetComponent<EndPanel>().SetUp();
         endPanel.transform.DOScale(new Vector3(1f, 1f, 1f), 1f);
     }
