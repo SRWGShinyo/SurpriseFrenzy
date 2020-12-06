@@ -17,14 +17,14 @@ public class BezierFollowMouse : MonoBehaviour
     private bool coroutineAllowed;
 
     private bool isEngaged;
-
+    private ParticleSystem sys;
     public float minimalDistance = 2f;
     // Start is called before the first frame update
     void Start()
     {
         transform.position = routes.GetChild(0).position;
         routeCurve = routes.GetComponent<BezierCurve>();
-
+        sys = GetComponentInChildren<ParticleSystem>();
         tParam = 0f;
         speedModifier = 0.5f;
         coroutineAllowed = true;
@@ -33,9 +33,10 @@ public class BezierFollowMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FindObjectOfType<FunctionInGame>().isPaused)
+        if (FunctionInGame.isPaused)
         {
             isEngaged = false;
+            sys.Stop();
             return;
         }
 
@@ -45,6 +46,7 @@ public class BezierFollowMouse : MonoBehaviour
             if (checkForMinimalDistance(mousePosToWorld, transform.position))
             {
                 isEngaged = true;
+                sys.Play();
             }
         }
 
@@ -55,6 +57,7 @@ public class BezierFollowMouse : MonoBehaviour
             if (position.z == -1)
             {
                 isEngaged = false;
+                sys.Stop();
                 return;
             }
 
@@ -69,6 +72,7 @@ public class BezierFollowMouse : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && isEngaged)
         {
             isEngaged = false;
+            sys.Stop();
             if (checkForMinimalDistance(transform.position, routeCurve.positions[routeCurve.positions.Count - 1], 0.8f))
             {
                 positionsPast.Clear();

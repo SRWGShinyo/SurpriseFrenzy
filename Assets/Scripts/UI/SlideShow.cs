@@ -7,7 +7,7 @@ public class SlideShow : MonoBehaviour
 {
     public List<GameObject> slides;
     public TextMeshProUGUI countArrow;
-    int index = 0;
+    public static int index = 0;
 
     public void GoForward()
     {

@@ -12,6 +12,9 @@ public class QTESlider : QTEMother
     [SerializeField]
     private int BORNWIDHT = 80;
 
+    public ParticleSystem good;
+    public ParticleSystem perfect;
+
     private void Awake()
     {
         ChoseProperPosition();
@@ -36,8 +39,16 @@ public class QTESlider : QTEMother
         if (timeToDie <= 0f)
             type = ValidationType.FAIL;
         else if (timeToDie >= originalTimeToDie * 0.3f)
+        {
             type = ValidationType.PERFECT;
-
+            ParticleSystem go = Instantiate(perfect);
+            go.gameObject.transform.position = GetComponent<BezierCurve>().positions[GetComponent<BezierCurve>().positions.Count - 1];
+        }
+        else
+        {
+            ParticleSystem go = Instantiate(good);
+            go.gameObject.transform.position = GetComponent<BezierCurve>().positions[GetComponent<BezierCurve>().positions.Count - 1];
+        }
         FindObjectOfType<QTEController>().ValidateAQTE(this, type);
     }
 

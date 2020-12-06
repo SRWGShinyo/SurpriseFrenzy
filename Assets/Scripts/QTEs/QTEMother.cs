@@ -18,7 +18,7 @@ public abstract class QTEMother : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (FindObjectOfType<FunctionInGame>().isPaused)
+        if (FunctionInGame.isPaused)
             return; 
         timeToDie -= Time.deltaTime;
         if (timeToDie <= 0f)

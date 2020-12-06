@@ -431,6 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 69070877234268073}
   - component: {fileID: 4871357442601208702}
+  - component: {fileID: 114642686412920348}
   m_Layer: 0
   m_Name: Gift
   m_TagString: Untagged
@@ -476,3 +477,35 @@ MonoBehaviour:
   bow: {fileID: 69070876796826684}
   demicadeau: {fileID: 21300000, guid: 6c864934852e9a543a7a0e61416d2a44, type: 3}
   nakedcadeau: {fileID: 21300000, guid: a76388d2133dd214eb3d5e6797045c41, type: 3}
+--- !u!114 &114642686412920348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69070877234268072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5bc52186df667c4f9a578b51cae557e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullGifts:
+  - {fileID: 21300000, guid: 1bb6770fb4030ca49b3f968c3725c08e, type: 3}
+  - {fileID: 21300000, guid: 731d7205d88a75242bd810a98cfe39b2, type: 3}
+  - {fileID: 21300000, guid: aefe0f33cb42ae44bbdd9dff197d74f4, type: 3}
+  allBow:
+  - {fileID: 21300000, guid: 63f614e6e08dc124f80d863d2639c7ed, type: 3}
+  - {fileID: 21300000, guid: 81d90f59f4ef131418f172d1855fbf20, type: 3}
+  - {fileID: 21300000, guid: 01a670a7965ef1541b3bbf725624d687, type: 3}
+  allBot:
+  - {fileID: 21300000, guid: 1ddf679f923e51d47a2f97af7e2714e8, type: 3}
+  - {fileID: 21300000, guid: bd3122a3387a12f4e9ed8f21c489bdd7, type: 3}
+  - {fileID: 21300000, guid: e20f2a96ac5707b49ae23b33850121f1, type: 3}
+  allTop:
+  - {fileID: 21300000, guid: 8cfa1610065af13459048ad1241157d9, type: 3}
+  - {fileID: 21300000, guid: 33da4483fc233a844bed595bd5e225c8, type: 3}
+  - {fileID: 21300000, guid: 7595ecc816eacba4aa77277ad640f21b, type: 3}
+  demicadeaux:
+  - {fileID: 21300000, guid: c4213dcd5291558408f77b7253113c43, type: 3}
+  - {fileID: 21300000, guid: 6c864934852e9a543a7a0e61416d2a44, type: 3}
+  - {fileID: 21300000, guid: a3df7709b183b354998e7fa677ce805b, type: 3}

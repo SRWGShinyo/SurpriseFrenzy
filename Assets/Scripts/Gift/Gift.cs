@@ -16,6 +16,11 @@ public class Gift : MonoBehaviour
     public Sprite demicadeau;
     public Sprite nakedcadeau;
 
+    private void Start()
+    {
+        GetComponent<GiftColorSelector>().SetUpGift(this);
+    }
+
     public void ReduceQte()
     {
         qteBeforeOpening -= 1;

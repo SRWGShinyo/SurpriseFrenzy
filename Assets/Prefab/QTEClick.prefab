@@ -73,6 +73,8 @@ MonoBehaviour:
   toChange: {fileID: 3891640405870735129}
   BORNHEIGHT: 100
   BORNWIDHT: 100
+  good: {fileID: 2248622828113193603, guid: ae7111d879ed2134fa698b7315168648, type: 3}
+  perfect: {fileID: 2360582452225311447, guid: 602b05857fb68df4680e531d67dd1c77, type: 3}
 --- !u!1 &3891640405870735131
 GameObject:
   m_ObjectHideFlags: 0

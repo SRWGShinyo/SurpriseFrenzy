@@ -15,6 +15,8 @@ public class QTEClick : QTEMother
     [SerializeField]
     private int BORNWIDHT = 100;
 
+    public ParticleSystem good;
+    public ParticleSystem perfect;
 
     void Start()
     {
@@ -55,7 +57,16 @@ public class QTEClick : QTEMother
         else if (timeToDie >= originalTimeToDie * 0.6f)
             type = ValidationType.FAIL;
         else if (timeToDie < (originalTimeToDie * 0.3f))
+        {
             type = ValidationType.PERFECT;
+            ParticleSystem go = Instantiate(perfect);
+            go.gameObject.transform.position = transform.position;
+        }
+        else
+        {
+            ParticleSystem go = Instantiate(good);
+            go.gameObject.transform.position = transform.position;
+        }
 
         FindObjectOfType<QTEController>().ValidateAQTE(this, type);
     }

@@ -7,13 +7,15 @@ using UnityEngine.SceneManagement;
 public class FunctionInGame : MonoBehaviour
 {
     public GameObject panel;
-    public bool isPaused = false;
+    public static bool isPaused = false;
 
     public void Pause()
     {
         EventSystem.current.SetSelectedGameObject(null);
         panel.transform.localScale = new Vector3(1f, 1f, 1f);
-        isPaused = !isPaused;
+        if (isPaused)
+            return;
+        isPaused = true;
         Time.timeScale = 0f;
     }
 
@@ -35,9 +37,10 @@ public class FunctionInGame : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         Time.timeScale = 1f;
-        isPaused = !isPaused;
-        Debug.Log(isPaused);
+        if (!isPaused)
+            return;
+        
+        isPaused = false;
         panel.transform.localScale = new Vector3(0f, 0f, 0f);
-
     }
 }
