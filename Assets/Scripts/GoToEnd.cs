@@ -58,7 +58,8 @@ public class GoToEnd : MonoBehaviour
             GameObject gift = Instantiate(giftPrefab);
             gift.transform.position = startPoint.transform.position;
             gift.transform.DOMove(middlePoint.transform.position, 1f);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.8f);
+            gift.GetComponent<Animator>().SetTrigger("Open");
             gift.GetComponentInChildren<BowBoom>().GoAway();
             GameObject renderer = Instantiate(basicRenderer);
             renderer.transform.position = middlePoint.transform.position;
@@ -72,7 +73,7 @@ public class GoToEnd : MonoBehaviour
             ohhh.Play();
             itemName.transform.DOScale(new Vector3(1, 1, 1), 1f);
             itemDescr.transform.DOScale(new Vector3(1, 1, 1), 1f);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(4f);
             renderer.transform.DOMove(middlePoint.position, 0.6f);
             renderer.transform.DOScale(new Vector3(0, 0, 0), 0.6f);
             itemName.transform.DOScale(new Vector3(0, 0, 0), 0.4f);
