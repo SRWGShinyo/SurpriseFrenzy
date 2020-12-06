@@ -7,10 +7,10 @@ public class QTESlider : QTEMother
     public List<Sprite> sprites;
 
     [SerializeField]
-    private int BORNHEIGHT = 100;
+    private int BORNHEIGHT = 80;
 
     [SerializeField]
-    private int BORNWIDHT = 100;
+    private int BORNWIDHT = 80;
 
     private void Awake()
     {
@@ -44,39 +44,39 @@ public class QTESlider : QTEMother
     protected override void ChoseProperPosition()
     {
         Vector2 screenPos1 = Camera.main.ScreenToWorldPoint(
-               new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
+               new Vector3(Random.Range(BORNWIDHT, Screen.width - BORNWIDHT), Random.Range(BORNHEIGHT, Screen.height - BORNHEIGHT), 0));
 
         while(!checkAvailablePos(screenPos1))
         {
             screenPos1 = Camera.main.ScreenToWorldPoint(
-                new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
+                new Vector3(Random.Range(BORNWIDHT, Screen.width - BORNWIDHT), Random.Range(BORNHEIGHT, Screen.height - BORNHEIGHT), 0));
         }
 
         Vector2 screenPos2 = Camera.main.ScreenToWorldPoint(
-            new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
+            new Vector3(Random.Range(BORNWIDHT, Screen.width - BORNWIDHT), Random.Range(BORNHEIGHT, Screen.height - BORNHEIGHT), 0));
 
         while (!checkAvailablePos(screenPos2))
         {
             screenPos2 = Camera.main.ScreenToWorldPoint(
-                new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
+                new Vector3(Random.Range(BORNWIDHT, Screen.width - BORNWIDHT), Random.Range(BORNHEIGHT, Screen.height - BORNHEIGHT), 0));
         }
 
         Vector2 screenPos3 = Camera.main.ScreenToWorldPoint(
-            new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
+            new Vector3(Random.Range(BORNWIDHT, Screen.width - BORNWIDHT), Random.Range(BORNHEIGHT, Screen.height - BORNHEIGHT), 0));
 
         while (!checkAvailablePos(screenPos3))
         {
             screenPos3 = Camera.main.ScreenToWorldPoint(
-                new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
+                new Vector3(Random.Range(BORNWIDHT, Screen.width - BORNWIDHT), Random.Range(BORNHEIGHT, Screen.height - BORNHEIGHT), 0));
         }
 
         Vector2 screenPos4 = Camera.main.ScreenToWorldPoint(
-            new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
+            new Vector3(Random.Range(BORNWIDHT, Screen.width - BORNWIDHT), Random.Range(BORNHEIGHT, Screen.height - BORNHEIGHT), 0));
 
         while (!checkAvailablePos(screenPos4))
         {
             screenPos4 = Camera.main.ScreenToWorldPoint(
-                new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
+                new Vector3(Random.Range(BORNWIDHT, Screen.width - BORNWIDHT), Random.Range(BORNHEIGHT, Screen.height - BORNHEIGHT), 0));
         }
 
         transform.GetChild(0).transform.position = screenPos1;

@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public int maxScore = 0;
+
     public enum Gametype
     {
+        TRAINING,
         NORMAL,
         HARD
     }
 
     public List<Gifts> giftsToGive = new List<Gifts>();
+    public List<string> discoveredGifts = new List<string>();
     public static GameController activeGC;
     public Gametype selectedDifficulty;
 
@@ -24,6 +28,7 @@ public class GameController : MonoBehaviour
         {
             activeGC = this;
             DontDestroyOnLoad(gameObject);
+            SaveMonitor.LoadGame();
         }
     }
 }

@@ -11,6 +11,8 @@ public class QTEController : MonoBehaviour
     public float timeLeft = 20f;
     public List<GameObject> activeQTEs;
 
+    public int awardByGift = 0;
+
     public List<Gifts> giftsAvailable = new List<Gifts>();
 
     public int giftvalidated = -1;
@@ -30,8 +32,8 @@ public class QTEController : MonoBehaviour
     public float wantedTimeQTE = 1f;
     public float timeBeforeQte = 1f;
 
-    float givenPerfect;
-    float givenGood;
+    public float givenPerfect;
+    public float givenGood;
 
     public enum QTEType
     {
@@ -41,19 +43,20 @@ public class QTEController : MonoBehaviour
 
     private void Start()
     {
-        GameController gc = FindObjectOfType<GameController>();
+        GameController gc = GameController.activeGC;
         if (gc)
         {
             if (gc.selectedDifficulty == GameController.Gametype.NORMAL)
                 SetUpNormal();
-            else
+            else if (gc.selectedDifficulty == GameController.Gametype.HARD)
                 SetUpHard();
+            else
+            {
+                wantedTimeQTE = 1f;
+                wantedTimeToDie = 1.5f;
+            }
         }
 
-        else
-        {
-            SetUpNormal();
-        }
         ChangeGift();
     }
 
@@ -65,6 +68,7 @@ public class QTEController : MonoBehaviour
         givenScore = Config.scoreGivenNormal;
         givenPerfect = Config.givenTimeNormalPerfect;
         givenGood = Config.givenTimeNormalGood;
+        awardByGift = Config.scoreGivenGiftNormal;
     }
 
     private void SetUpHard()
@@ -75,11 +79,27 @@ public class QTEController : MonoBehaviour
         givenScore = Config.scoreGivenHard;
         givenPerfect = Config.givenTimeHardPerfect;
         givenGood = Config.givenTimeHardGood;
+        awardByGift = Config.scoreGivenGiftHard;
+    }
+
+    public int computeTotalScore()
+    {
+        return score + (giftvalidated * awardByGift);
     }
 
     private void Update()
     {
         if (!isActive)
+            return;
+
+        timeBeforeQte -= Time.deltaTime;
+        if (timeBeforeQte <= 0)
+        {
+            SpawnQTE();
+            timeBeforeQte = wantedTimeQTE;
+        }
+
+        if (GameController.activeGC.selectedDifficulty == GameController.Gametype.TRAINING)
             return;
 
         timeLeft -= Time.deltaTime;
@@ -97,13 +117,6 @@ public class QTEController : MonoBehaviour
                 activeGift = null;
             }
             FindObjectOfType<GoToEnd>().EndGame();
-        }
-
-        timeBeforeQte -= Time.deltaTime;
-        if (timeBeforeQte <= 0)
-        {
-            SpawnQTE();
-            timeBeforeQte = wantedTimeQTE;
         }
     }
 
@@ -146,20 +159,27 @@ public class QTEController : MonoBehaviour
 
     public void ValidateAQTE(QTEMother qt, QTEMother.ValidationType type)
     {
-        switch(type)
+        switch (type)
         {
             case QTEMother.ValidationType.PERFECT:
-                score += givenScore;
-                timeLeft += givenPerfect;
+                if (GameController.activeGC.selectedDifficulty != GameController.Gametype.TRAINING)
+                {
+                    score += givenScore;
+                    timeLeft += givenPerfect;
+                }
                 activeGift.ReduceQte();
                 break;
             case QTEMother.ValidationType.GOOD:
-                score += givenScore / 2;
-                timeLeft += givenGood;
+                if (GameController.activeGC.selectedDifficulty != GameController.Gametype.TRAINING)
+                {
+                    score += givenScore / 2;
+                    timeLeft += givenGood;
+                }
                 activeGift.ReduceQte();
                 break;
             case QTEMother.ValidationType.FAIL:
-                timeLeft -= 2f;
+                if (GameController.activeGC.selectedDifficulty != GameController.Gametype.TRAINING)
+                    timeLeft -= 2f;
                 break;
         }
 

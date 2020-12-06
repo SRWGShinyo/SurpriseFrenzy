@@ -19,6 +19,10 @@ public class GoToEnd : MonoBehaviour
 
     public SpriteRenderer filter;
 
+    public GameObject endPanel;
+    public TextMeshProUGUI finished;
+    public TextMeshProUGUI Unpack;
+
     public void EndGame()
     {
         StartCoroutine(AnimateToEnd());
@@ -26,6 +30,13 @@ public class GoToEnd : MonoBehaviour
 
     private IEnumerator AnimateToEnd()
     {
+        finished.transform.DOScale(new Vector3(1f, 1f, 1f), 0.6f);
+        yield return new WaitForSeconds(2f);
+        finished.transform.DOScale(new Vector3(0f, 0f, 0f), 0.6f);
+        Unpack.transform.DOScale(new Vector3(1f, 1f, 1f), 0.6f);
+        yield return new WaitForSeconds(2f);
+        Unpack.transform.DOScale(new Vector3(0f, 0f, 0f), 0.6f);
+
         Color c = filter.color;
         while (c.a > 0)
         {
@@ -67,5 +78,8 @@ public class GoToEnd : MonoBehaviour
             Destroy(gift);
             GameController.activeGC.giftsToGive.RemoveAt(0);
         }
+
+        endPanel.GetComponent<EndPanel>().SetUp();
+        endPanel.transform.DOScale(new Vector3(1f, 1f, 1f), 1f);
     }
 }

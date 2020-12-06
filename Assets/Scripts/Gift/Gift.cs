@@ -48,7 +48,8 @@ public class Gift : MonoBehaviour
     {
 
         QTEController qte = FindObjectOfType<QTEController>();
-        GameController.activeGC.giftsToGive.Add(qte.giftsAvailable[0]);
+        if (GameController.activeGC.selectedDifficulty != GameController.Gametype.TRAINING)
+            GameController.activeGC.giftsToGive.Add(qte.giftsAvailable[0]);
         qte.giftvalidated += 1;
         transform.DOMove(qte.endPos.transform.position, 0.6f);
         yield return new WaitForSeconds(0.6f);

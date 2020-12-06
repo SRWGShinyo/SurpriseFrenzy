@@ -33,6 +33,12 @@ public class BezierFollowMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (FindObjectOfType<FunctionInGame>().isPaused)
+        {
+            isEngaged = false;
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0) && !isEngaged)
         {
             Vector2 mousePosToWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);

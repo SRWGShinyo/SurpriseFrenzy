@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3891640405758817411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6795194, y: -0.2537313, z: 0}
+  m_LocalPosition: {x: 2.6795194, y: -0.2537313, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1475319574807862970}
@@ -71,6 +71,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2a8c313d2ef72eb45b36b9b1c4804536, type: 3}
   circle: {fileID: 6943902495523893936}
   toChange: {fileID: 3891640405870735129}
+  BORNHEIGHT: 100
+  BORNWIDHT: 100
 --- !u!1 &3891640405870735131
 GameObject:
   m_ObjectHideFlags: 0

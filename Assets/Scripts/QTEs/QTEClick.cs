@@ -63,11 +63,11 @@ public class QTEClick : QTEMother
     protected override void ChoseProperPosition()
     {
         Vector2 screenPos = Camera.main.ScreenToWorldPoint(
-                new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
+                new Vector3(Random.Range(BORNWIDHT, Screen.width - BORNWIDHT), Random.Range(BORNHEIGHT, Screen.height - BORNHEIGHT), 0));
         while(!checkAvailablePos(screenPos))
         {
             screenPos = Camera.main.ScreenToWorldPoint(
-                new Vector3(Random.Range(BORNWIDHT, Screen.width), Random.Range(BORNHEIGHT, Screen.height), 0));
+                new Vector3(Random.Range(BORNWIDHT, Screen.width - BORNWIDHT), Random.Range(BORNHEIGHT, Screen.height - BORNHEIGHT), 0));
         }
 
         transform.position = screenPos;
