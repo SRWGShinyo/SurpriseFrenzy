@@ -8,7 +8,7 @@ public class Populator : MonoBehaviour
     public GameObject prefabEntry;
 
     public GameObject content;
-
+    public GameObject panel;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class Populator : MonoBehaviour
     {
         foreach (Gifts g in GameController.activeGC.allAvailableGifts)
         {
+            Debug.Log(g.nam);
             GameObject prefab = Instantiate(prefabEntry);
             prefab.transform.SetParent(content.transform);
             if (GameController.activeGC.discoveredGifts.Contains(g.nam))
@@ -34,5 +35,7 @@ public class Populator : MonoBehaviour
                     prefab.GetComponent<PrefabEntryItem>().INCARNATE("????", "Play in normal or hard to discover that gift !", incognitoSprite);
             }
         }
+
+        panel.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 }

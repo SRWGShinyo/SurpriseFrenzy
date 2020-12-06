@@ -370,7 +370,7 @@ RectTransform:
   m_GameObject: {fileID: 21508166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 525017333}
   - {fileID: 1542615206}
@@ -2684,7 +2684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6840646d6c006944b0d8aeba2bd0b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  incognitoSprite: {fileID: 0}
+  incognitoSprite: {fileID: 21300000, guid: 4f2572b229366804db978225a7a3b196, type: 3}
   prefabEntry: {fileID: 6677917987684846193, guid: 18e52ab478352d04e9c0d5be2b2bc792,
     type: 3}
   content: {fileID: 1451728769}
@@ -5743,7 +5743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 344.76984}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1451728771
@@ -7014,8 +7014,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2032636955}
   m_HandleRect: {fileID: 2032636954}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.6296378
+  m_Value: 0
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
