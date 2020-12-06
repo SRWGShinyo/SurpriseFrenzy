@@ -13,8 +13,6 @@ public class QTEController : MonoBehaviour
 
     public int awardByGift = 0;
 
-    public List<Gifts> giftsAvailable = new List<Gifts>();
-
     public int giftvalidated = -1;
     public GameObject startPos;
     public GameObject endPos;
@@ -42,6 +40,10 @@ public class QTEController : MonoBehaviour
         SLIDER,
         CLICK
     }
+
+    public List<Gifts> normalGifts = new List<Gifts>();
+    public List<Gifts> hardGifts = new List<Gifts>();
+
 
     private void Start()
     {

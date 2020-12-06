@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     public static GameController activeGC;
     public Gametype selectedDifficulty;
 
+    public List<Gifts> allAvailableGifts = new List<Gifts>();
     private void Awake()
     {
         if (activeGC)

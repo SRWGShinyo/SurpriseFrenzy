@@ -54,6 +54,7 @@ public class GoToEnd : MonoBehaviour
         while (GameController.activeGC.giftsToGive.Count > 0)
         {
             Gifts toGive = GameController.activeGC.giftsToGive[0];
+            GameController.activeGC.discoveredGifts.Add(toGive.nam);
             GameObject gift = Instantiate(giftPrefab);
             gift.transform.position = startPoint.transform.position;
             gift.transform.DOMove(middlePoint.transform.position, 1f);
