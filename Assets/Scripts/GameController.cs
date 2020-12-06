@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
         HARD
     }
 
-    public List<string> giftsToGive;
+    public List<Gifts> giftsToGive = new List<Gifts>();
     public static GameController activeGC;
     public Gametype selectedDifficulty;
 

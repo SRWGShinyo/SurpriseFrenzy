@@ -11,11 +11,14 @@ public class QTEController : MonoBehaviour
     public float timeLeft = 20f;
     public List<GameObject> activeQTEs;
 
+    public List<Gifts> giftsAvailable = new List<Gifts>();
 
     public int giftvalidated = -1;
     public GameObject startPos;
     public GameObject endPos;
     public GameObject middlePos;
+
+    public bool isActive = false;
 
     public GameObject qteSliderPrefab;
     public GameObject qteClickPrefab;
@@ -76,7 +79,26 @@ public class QTEController : MonoBehaviour
 
     private void Update()
     {
+        if (!isActive)
+            return;
+
         timeLeft -= Time.deltaTime;
+        if (timeLeft <= 0)
+        {
+            timeLeft = 0;
+            isActive = false;
+            foreach (GameObject go in activeQTEs)
+                Destroy(go);
+
+            if (activeGift)
+            {
+                activeGift.gameObject.transform.DOMove(startPos.transform.position, 0.4f);
+                Destroy(activeGift.gameObject);
+                activeGift = null;
+            }
+            FindObjectOfType<GoToEnd>().EndGame();
+        }
+
         timeBeforeQte -= Time.deltaTime;
         if (timeBeforeQte <= 0)
         {
@@ -147,7 +169,6 @@ public class QTEController : MonoBehaviour
 
     public void ChangeGift()
     {
-        giftvalidated++;
         StartCoroutine(changement());
     }
 

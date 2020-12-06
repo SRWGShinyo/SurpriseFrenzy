@@ -46,10 +46,13 @@ public class Gift : MonoBehaviour
 
     private IEnumerator MoveAndGo()
     {
-        //FIXME: add object to GameController
+
         QTEController qte = FindObjectOfType<QTEController>();
+        GameController.activeGC.giftsToGive.Add(qte.giftsAvailable[0]);
+        qte.giftvalidated += 1;
         transform.DOMove(qte.endPos.transform.position, 0.6f);
         yield return new WaitForSeconds(0.6f);
         qte.ChangeGift();
+        Destroy(gameObject);
     }
 }
