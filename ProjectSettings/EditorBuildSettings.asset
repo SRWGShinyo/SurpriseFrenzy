@@ -5,10 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+  - enabled: 0
+    path: Assets/Scenes/PCBuild/MainMenu.unity
     guid: eec8cb6e9243cec4da7a623b29a84787
-  - enabled: 1
-    path: Assets/Scenes/UnpackQTEScene.unity
+  - enabled: 0
+    path: Assets/Scenes/PCBuild/UnpackQTEScene.unity
     guid: c9add8ae0f0bb074ca3486a8001523b3
+  - enabled: 1
+    path: Assets/Scenes/MobileBuild/MainMenuMobile.unity
+    guid: 6a8cd9528c4da3e47b18abf485f05373
+  - enabled: 1
+    path: Assets/Scenes/MobileBuild/UnpackQTESceneMobile.unity
+    guid: 6747163328e04b545919f7e61fab2a26
   m_configObjects: {}

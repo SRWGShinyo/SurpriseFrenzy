@@ -23,6 +23,7 @@ public class Populator : MonoBehaviour
             Debug.Log(g.nam);
             GameObject prefab = Instantiate(prefabEntry);
             prefab.transform.SetParent(content.transform);
+            prefab.transform.localScale = new Vector3(1f, 1f, 1f);
             if (GameController.activeGC.discoveredGifts.Contains(g.nam))
                 prefab.GetComponent<PrefabEntryItem>().INCARNATE(g.nam, g.tagline, g.image);
             else

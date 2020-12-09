@@ -64,7 +64,7 @@ public class Gift : MonoBehaviour
         QTEController qte = FindObjectOfType<QTEController>();
         if (GameController.activeGC.selectedDifficulty != GameController.Gametype.TRAINING)
         {
-            if (GameController.activeGC.selectedDifficulty != GameController.Gametype.NORMAL)
+            if (GameController.activeGC.selectedDifficulty == GameController.Gametype.NORMAL)
             {
                 GameController.activeGC.giftsToGive.Add(qte.normalGifts[Random.Range(0, qte.normalGifts.Count)]);
             }
